@@ -78,7 +78,7 @@ class SignActivity: AppCompatActivity(){
         editor.apply()
     }
 
-    // Función para obtener el token de SharedPreferences
+
     private fun getTokenFromStorage(context: Context): String? {
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("access_token", null)

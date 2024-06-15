@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.estructuresDades.Rutes
 import com.example.myapplication.retrofit.APIservice
@@ -63,13 +64,21 @@ class MainActivity : AppCompatActivity() {
                     saveDataToStorage(this@MainActivity, token, rol, nombres, ids)
 
                     val intent = if (rol == "ROLE_TUTOR") {
+
                         Intent(this@MainActivity, PaginaPrincipal::class.java)
                     } else {
                         Intent(this@MainActivity, PaginaPrincipalKids::class.java)
                     }
+                    runOnUiThread {
+                        Toast.makeText(this@MainActivity, "You have successfully logged in", Toast.LENGTH_SHORT).show()
+                    }
                     startActivity(intent)
                 }
             } else {
+                runOnUiThread {
+                    Toast.makeText(this@MainActivity, "There is no user with those credentials", Toast.LENGTH_SHORT).show()
+                }
+
                 print("No te has podido Logear")
             }
         }
