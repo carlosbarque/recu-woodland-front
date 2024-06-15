@@ -54,8 +54,12 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
     fun bindClickBtnEdit(data: Task) {
         but3.setOnClickListener {
             val context = but3.context
-            val intent = Intent(context, EditarTarea::class.java)
-            intent.putExtra("idTarea", data.id) // Pasar el ID de la tarea
+            val intent = Intent(context, EditarTarea::class.java).apply {
+                putExtra("idTarea", data.id) // Pasar el ID de la tarea
+                putExtra("nombreTarea", data.nombre) // Pasar el nombre de la tarea
+                putExtra("descripcionTarea", data.descripcion) // Pasar la descripción de la tarea
+                putExtra("monedasTarea", data.monedas) // Pasar las monedas de la tarea
+            }
             context.startActivity(intent)
         }
     }
