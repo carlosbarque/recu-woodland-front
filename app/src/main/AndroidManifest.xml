@@ -38,6 +38,7 @@
         <activity android:name=".usuarisrv.CreatePremio"></activity>
         <activity android:name=".usuarisrv.ModifyActivity"></activity>
         <activity android:name=".usuarisrv.VerificateTarea"></activity>
+        <activity android:name=".usuarisrv.EditarTarea"></activity>
 
     </application>
 </manifest>

@@ -30,6 +30,7 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
     val tv_rv_monedas: TextView = view.findViewById(R.id.tvMonedas)
     val but1: Button = view.findViewById(R.id.btnMark)
     val but2: Button = view.findViewById(R.id.btnDelete)
+    val but3: Button = view.findViewById(R.id.btnEdit) // Añadir botón de editar
 
     init {
         if (clickListener != null) {
@@ -47,6 +48,15 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
     fun bind2ClickBtnDelete(data: Task) {
         but2.setOnClickListener {
             postDeleteTask(data)
+        }
+    }
+
+    fun bindClickBtnEdit(data: Task) {
+        but3.setOnClickListener {
+            val context = but3.context
+            val intent = Intent(context, EditarTarea::class.java)
+            intent.putExtra("idTarea", data.id) // Pasar el ID de la tarea
+            context.startActivity(intent)
         }
     }
 
@@ -89,14 +99,10 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
             val service = retrofit.create(APIservice::class.java)
             val response = service.deleteTask("api", data.id)
             if (response.isSuccessful) {
-
-
-                    withContext(Dispatchers.Main) {
-                        val intent = Intent(context, PaginaPrincipal::class.java)
-
-                        context.startActivity(intent)
-                    }
-
+                withContext(Dispatchers.Main) {
+                    val intent = Intent(context, PaginaPrincipal::class.java)
+                    context.startActivity(intent)
+                }
                 Log.e("Resultado", "La llamada ha sido exitosa")
             } else {
                 withContext(Dispatchers.Main) {

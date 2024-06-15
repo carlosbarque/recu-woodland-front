@@ -37,4 +37,6 @@ class PaginaPrincipalKids : AppCompatActivity() {
     fun postEditarUsuario(view: View){
         startActivity(Intent(this@PaginaPrincipalKids, EditarActivity::class.java))
     }
+
+
 }

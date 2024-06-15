@@ -6,6 +6,7 @@ import com.example.myapplication.estructuresDades.EditarUsuari
 import com.example.myapplication.estructuresDades.LoginUsuari
 import com.example.myapplication.estructuresDades.CreateKid
 import com.example.myapplication.estructuresDades.CreatePremioModel
+import com.example.myapplication.estructuresDades.EditarTaskObject
 import com.example.myapplication.estructuresDades.Rewards
 import com.example.myapplication.estructuresDades.Task
 import com.example.myapplication.estructuresDades.TaskResponse
@@ -53,5 +54,8 @@ interface APIservice {
 
     @POST("{ruta}/task/delete")
     suspend fun deleteTask(@Path("ruta") ruta: String, @Body id: Int): Response<Unit>
+
+    @PUT("{ruta}/task/update")
+    suspend fun putEditarTask(@Path("ruta") ruta: String, @Body editarTask: createTask):Response<Task>
 
 }

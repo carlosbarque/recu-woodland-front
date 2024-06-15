@@ -24,6 +24,7 @@ class TereaRvAdapter(private val tasks: MutableList<Task>) : RecyclerView.Adapte
         val item = tasks[position]
         holder.bindClickBtnMark(item)
         holder.bind2ClickBtnDelete(item)
+        holder.bindClickBtnEdit(item) // Enlazar botón de editar
     }
 
     fun setOnItemClickListener(clickListener: ClickListener) {

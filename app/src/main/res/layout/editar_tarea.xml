@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="CREATE TASK"
+        android:text="EDIT TASK"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -113,47 +113,21 @@
             app:layout_constraintTop_toTopOf="@id/textViewMonedasLabel" />
 
 
-        <Spinner
-            android:id="@+id/kid"
-            android:layout_width="222dp"
-            android:layout_height="45dp"
-            android:layout_centerInParent="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.449"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.803" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="142dp"
-            android:layout_height="38dp"
-            android:text="Kid"
-            android:textColor="#C2E69D"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.315"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.697" />
-
         <Button
             android:id="@+id/buttonSubmit"
             android:layout_width="123dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="28dp"
             android:background="@drawable/custom_button_background"
-            android:onClick="postCreateTask"
+            android:onClick="postEditTask"
             android:text="Create"
             android:textColor="#FFFFFF"
             app:iconTint="#FFE2E2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.549"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewTitleLabel"
+            app:layout_constraintVertical_bias="0.773"
             app:strokeColor="#FF0000" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
