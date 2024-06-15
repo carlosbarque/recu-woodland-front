@@ -84,7 +84,7 @@ class EditarTarea : AppCompatActivity() {
             val resposta = con.create(APIservice::class.java).putEditarTask("api", createTask(nombre, descripcion, monedas, idTarea))
             if (resposta.isSuccessful) {
                 runOnUiThread {
-                    Toast.makeText(this@EditarTarea, "Tarea actualizada exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditarTarea, "Task updated successfully", Toast.LENGTH_SHORT).show()
                 }
                 startActivity(Intent(this@EditarTarea, PaginaPrincipal::class.java))
             } else {

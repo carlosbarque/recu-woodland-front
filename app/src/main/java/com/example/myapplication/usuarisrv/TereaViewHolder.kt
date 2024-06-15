@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.estructuresDades.Rutes
@@ -30,7 +31,7 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
     val tv_rv_monedas: TextView = view.findViewById(R.id.tvMonedas)
     val but1: Button = view.findViewById(R.id.btnMark)
     val but2: Button = view.findViewById(R.id.btnDelete)
-    val but3: Button = view.findViewById(R.id.btnEdit) // Añadir botón de editar
+    val but3: Button = view.findViewById(R.id.btnEdit)
 
     init {
         if (clickListener != null) {
@@ -55,17 +56,16 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
         but3.setOnClickListener {
             val context = but3.context
             val intent = Intent(context, EditarTarea::class.java).apply {
-                putExtra("idTarea", data.id) // Pasar el ID de la tarea
-                putExtra("nombreTarea", data.nombre) // Pasar el nombre de la tarea
-                putExtra("descripcionTarea", data.descripcion) // Pasar la descripción de la tarea
-                putExtra("monedasTarea", data.monedas) // Pasar las monedas de la tarea
+                putExtra("idTarea", data.id)
+                putExtra("nombreTarea", data.nombre)
+                putExtra("descripcionTarea", data.descripcion)
+                putExtra("monedasTarea", data.monedas)
             }
             context.startActivity(intent)
         }
     }
 
     private fun postVerificateTask(data: Task) {
-        val id = data.id
         val context = but1.context
         val token = getTokenFromStorage(context)
         CoroutineScope(Dispatchers.IO).launch {
@@ -74,15 +74,10 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
             val service = retrofit.create(APIservice::class.java)
             val response = service.postVericateTask("api", data.id)
             if (response.isSuccessful) {
-                val task = response.body()?.task
-                if (task != null) {
-                    withContext(Dispatchers.Main) {
-                        val intent = Intent(context, PaginaPrincipal::class.java)
-                        intent.putExtra("nombre", task.nombre)
-                        intent.putExtra("description", task.descripcion)
-                        intent.putExtra("monedas", task.monedas)
-                        context.startActivity(intent)
-                    }
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Task verified successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(context, PaginaPrincipal::class.java)
+                    context.startActivity(intent)
                 }
                 Log.e("Resultado", "La llamada ha sido exitosa")
             } else {
@@ -94,7 +89,6 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
     }
 
     private fun postDeleteTask(data: Task) {
-        val id = data.id
         val context = but1.context
         val token = getTokenFromStorage(context)
         CoroutineScope(Dispatchers.IO).launch {
@@ -104,6 +98,7 @@ class TereaViewHolder(view: View, private val clickListener: TereaRvAdapter.Clic
             val response = service.deleteTask("api", data.id)
             if (response.isSuccessful) {
                 withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Task deleted successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(context, PaginaPrincipal::class.java)
                     context.startActivity(intent)
                 }
