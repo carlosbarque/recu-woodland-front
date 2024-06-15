@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C2E69D"
+    android:backgroundTint="#C2E69D"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="172dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="272dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="4dp"
+        android:text="WOODLAND"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bottom_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postCreateTerea"
+            android:text="Create Task"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.204"
+            app:strokeColor="#FF0000" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postCreatePremio"
+            android:text="Create Reward"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button1"
+            app:layout_constraintVertical_bias="0.139"
+            app:strokeColor="#FF0000" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postAñadirEnlace"
+            android:text="Add Child"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.097"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.788"
+            app:strokeColor="#FF0000" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postUpdateTask"
+            android:text="Update Tarea"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.204"
+            app:strokeColor="#FF0000" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postUpdatePremio"
+            android:text="Update Reward"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4"
+            app:layout_constraintVertical_bias="0.139"
+            app:strokeColor="#FF0000" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="postEditarUsuario"
+            android:text="Update User"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.788"
+            app:strokeColor="#FF0000" />
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="logout"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            app:layout_constraintVertical_bias="1.0"
+            app:strokeColor="#FF0000" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
