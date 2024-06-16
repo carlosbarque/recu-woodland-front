@@ -58,6 +58,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.123"
             app:strokeColor="#FF0000" />
+        <EditText
+            android:id="@+id/editTextKidId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Kid ID"
+            android:inputType="number" />
 
 
         <Button

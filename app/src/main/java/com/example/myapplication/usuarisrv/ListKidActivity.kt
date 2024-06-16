@@ -39,13 +39,23 @@ class ListKidActivity : AppCompatActivity() {
         val client = createOkHttpClient(token)
         val retrofit = createRetrofit(client)
         apiService = retrofit.create(APIservice::class.java)
+        val kidId = intent.getIntExtra("KID_ID", 2)
+        if (kidId != -1) {
+            fetchTasksForKid(kidId)
+        } else {
+            Toast.makeText(this, "Invalid Kid ID", Toast.LENGTH_SHORT).show()
+        }
 
-        fetchTasksForKid(2)
+        //fetchTasksForKid(kidIdStr)
+        println("1")
     }
+    //println("2")
 
     private fun fetchTasksForKid(kidId: Int) {
+        println("2")
         CoroutineScope(Dispatchers.IO).launch {
             val response = apiService.getKidTask("api", kidId)
+            println(kidId)
             if (response.isSuccessful) {
                 val taskList = response.body()
                 withContext(Dispatchers.Main) {
