@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 
 class PaginaPrincipal : AppCompatActivity() {
@@ -52,5 +53,9 @@ class PaginaPrincipal : AppCompatActivity() {
 
     fun postEditarUsuario(view: View){
         startActivity(Intent(this@PaginaPrincipal, EditarActivity::class.java))
+    }
+
+    fun logout(view: View){
+        startActivity(Intent(this@PaginaPrincipal, MainActivity::class.java))
     }
 }

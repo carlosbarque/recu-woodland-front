@@ -58,4 +58,7 @@ interface APIservice {
     @PUT("{ruta}/task/update")
     suspend fun putEditarTask(@Path("ruta") ruta: String, @Body editarTask: createTask):Response<Task>
 
+    @GET("{ruta}/task/kid/{id}")
+    suspend fun getKidTask(@Path("ruta") ruta: String, @Path("id") kidId: Int):Response<List<Task>>
+
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.estructuresDades.EditarUsuari
 
@@ -24,6 +25,10 @@ class PaginaPrincipalKids : AppCompatActivity() {
         startActivity(Intent(this@PaginaPrincipalKids, CreateKid::class.java))
     }
 
+    fun getKidTask(view: View){
+        startActivity(Intent(this@PaginaPrincipalKids, ListKidActivity::class.java))
+    }
+
     fun postUpdateTask(view: View){
         startActivity(Intent(this@PaginaPrincipalKids, EditarActivity::class.java))
     }
@@ -36,6 +41,9 @@ class PaginaPrincipalKids : AppCompatActivity() {
 
     fun postEditarUsuario(view: View){
         startActivity(Intent(this@PaginaPrincipalKids, EditarActivity::class.java))
+    }
+    fun logout(view: View){
+        startActivity(Intent(this@PaginaPrincipalKids, MainActivity::class.java))
     }
 
 

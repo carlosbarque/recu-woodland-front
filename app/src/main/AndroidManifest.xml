@@ -39,6 +39,7 @@
         <activity android:name=".usuarisrv.ModifyActivity"></activity>
         <activity android:name=".usuarisrv.VerificateTarea"></activity>
         <activity android:name=".usuarisrv.EditarTarea"></activity>
+        <activity android:name=".usuarisrv.ListKidActivity"></activity>
 
     </application>
 </manifest>

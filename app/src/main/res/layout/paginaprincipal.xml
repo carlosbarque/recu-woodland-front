@@ -84,7 +84,7 @@
             android:layout_height="80dp"
             android:background="@drawable/custom_button_background"
             android:onClick="postAñadirEnlace"
-            android:text="Add link"
+            android:text="Add Child"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:iconTint="#FFE2E2"
@@ -148,6 +148,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button4"
             app:layout_constraintVertical_bias="0.139"
+            app:strokeColor="#FF0000" />
+
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="155dp"
+            android:layout_height="80dp"
+            android:background="@drawable/custom_button_background"
+            android:onClick="logout"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:iconTint="#FFE2E2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            app:layout_constraintVertical_bias="1.0"
             app:strokeColor="#FF0000" />
 
 
