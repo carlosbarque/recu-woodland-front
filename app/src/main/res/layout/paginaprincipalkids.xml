@@ -87,6 +87,7 @@
             android:id="@+id/button6"
             android:layout_width="155dp"
             android:layout_height="80dp"
+            android:layout_marginBottom="112dp"
             android:background="@drawable/custom_button_background"
             android:onClick="postEditarUsuario"
             android:text="Update User"
@@ -96,8 +97,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.753"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
             app:strokeColor="#FF0000" />
 
         <Button
@@ -114,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button6"
-            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_bias="0.483"
             app:strokeColor="#FF0000" />
 
 

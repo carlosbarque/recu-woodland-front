@@ -150,26 +150,26 @@
             app:layout_constraintVertical_bias="0.139"
             app:strokeColor="#FF0000" />
 
-        <Button
-            android:id="@+id/button_logout"
-            android:layout_width="155dp"
-            android:layout_height="80dp"
-            android:background="@drawable/custom_button_background"
-            android:onClick="logout"
-            android:text="Logout"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:iconTint="#FFE2E2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button5"
-            app:layout_constraintVertical_bias="1.0"
-            app:strokeColor="#FF0000" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button_logout"
+        android:layout_width="103dp"
+        android:layout_height="33dp"
+        android:background="@drawable/custom_button_background"
+        android:onClick="logout"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:iconTint="#FFE2E2"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206"
+        app:strokeColor="#FF0000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

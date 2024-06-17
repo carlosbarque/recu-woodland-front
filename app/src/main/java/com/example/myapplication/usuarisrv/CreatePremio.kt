@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.estructuresDades.CreatePremioModel
@@ -41,13 +42,18 @@ class CreatePremio : AppCompatActivity() {
         val inputDescription = findViewById<EditText>(R.id.editTextDescripcionRewards)
         val inputMonedas = findViewById<EditText>(R.id.editTextMonedasRewards)
 
-        val inputKid = findViewById<Spinner>(R.id.kid)
-        val selectedKidPosition = inputKid.selectedItemPosition
-
         val title = inputTitle.text.toString()
         val description = inputDescription.text.toString()
         val monedasText = inputMonedas.text.toString()
-        val monedas = if (monedasText.isNotEmpty()) monedasText.toInt() else 0
+
+        if (title.isBlank() || description.isBlank() || monedasText.isBlank()) {
+            Toast.makeText(this, "All fields must be filled out", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val monedas = monedasText.toInt()
+        val inputKid = findViewById<Spinner>(R.id.kid)
+        val selectedKidPosition = inputKid.selectedItemPosition
         val token = getTokenFromStorage(this@CreatePremio)
 
         val ids = intent.getIntegerArrayListExtra("ids") ?: ArrayList()
@@ -69,7 +75,6 @@ class CreatePremio : AppCompatActivity() {
                     .addInterceptor(authInterceptor)
                     .build()
 
-
                 val con = Retrofit.Builder().baseUrl(Rutes.baseUrl)
                     .addConverterFactory(GsonConverterFactory.create()).client(client).build()
 
@@ -77,10 +82,10 @@ class CreatePremio : AppCompatActivity() {
                     "api",
                     CreatePremioModel(title, description, monedas, selectedKidId)
                 )
-                if (resposta.isSuccessful){
+                if (resposta.isSuccessful) {
                     println("La respuesta es exitosa")
                     startActivity(Intent(this@CreatePremio, PaginaPrincipal::class.java))
-                }else{
+                } else {
                     println("Error en la respuesta: ${resposta.errorBody()?.string()}")
                 }
             }
@@ -93,5 +98,5 @@ class CreatePremio : AppCompatActivity() {
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("access_token", null)
     }
-
 }
+

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import com.example.myapplication.estructuresDades.CreatePremioModel
@@ -36,19 +37,26 @@ class TereaActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
     }
+
     fun postCreateTask(view: View) {
         val inputNombre = findViewById<EditText>(R.id.editTextTitle)
         val inputDescripcion = findViewById<EditText>(R.id.editTextDescription)
-        val inputmonedas = findViewById<EditText>(R.id.editTextMonedas)
+        val inputMonedas = findViewById<EditText>(R.id.editTextMonedas)
 
         val nombre = inputNombre.text.toString()
         val description = inputDescripcion.text.toString()
-        val monedas = inputmonedas.text.toString().toInt()
-        val token =getTokenFromStorage(this@TereaActivity)
+        val monedasText = inputMonedas.text.toString()
+
+        if (nombre.isBlank() || description.isBlank() || monedasText.isBlank()) {
+            Toast.makeText(this, "All fields must be filled out", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val monedas = monedasText.toInt()
+        val token = getTokenFromStorage(this@TereaActivity)
         val inputKid = findViewById<Spinner>(R.id.kid)
 
         val selectedKidPosition = inputKid.selectedItemPosition
-
         val ids = intent.getIntegerArrayListExtra("ids") ?: ArrayList()
         val selectedKidId = if (selectedKidPosition in ids.indices) ids[selectedKidPosition] else null
 
@@ -68,26 +76,27 @@ class TereaActivity : AppCompatActivity() {
                     .addInterceptor(authInterceptor)
                     .build()
 
-
                 val con = Retrofit.Builder().baseUrl(Rutes.baseUrl)
                     .addConverterFactory(GsonConverterFactory.create()).client(client).build()
                 val resposta = con.create(APIservice::class.java).postCreateTask(
                     "api",
                     createTask(nombre, description, monedas, selectedKidId)
                 )
-                if (resposta.isSuccessful){
+                if (resposta.isSuccessful) {
                     println("La respuesta es exitosa")
                     startActivity(Intent(this@TereaActivity, PaginaPrincipal::class.java))
-                }else{
+                } else {
                     println("Error en la respuesta: ${resposta.errorBody()?.string()}")
                 }
             }
         } else {
             println("Error: selectedKidId es null")
         }
-        }
     }
+
     private fun getTokenFromStorage(context: Context): String? {
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("access_token", null)
     }
+}
+
